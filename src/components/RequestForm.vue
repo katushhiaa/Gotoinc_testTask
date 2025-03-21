@@ -30,7 +30,7 @@ const submitForm = () =>{
 
 <template>
 
-  <form @submit.prevent = "submitForm">
+  <form @submit.prevent = "submitForm" class="request-form">
     <input v-model="fromCity" placeholder="Введіть місто з якого відправка" required />
     <input v-model="toCity" placeholder="Введіть місто в яке доставка" required />
     <select  v-model="type" required>
@@ -50,5 +50,47 @@ const submitForm = () =>{
 </template>
 
 <style scoped>
+.request-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #f9f9f9;
+}
+
+.request-form input,
+.request-form select,
+.request-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  width: 500px;
+  box-sizing: border-box;
+}
+
+.request-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.request-form button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.request-form button:hover {
+  background-color: #0056b3;
+}
 
 </style>
