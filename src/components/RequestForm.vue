@@ -1,33 +1,3 @@
-<script setup>
-import {ref} from "vue";
-
-const emit = defineEmits(['submit-request']);
-
-
-const fromCity = ref('');
-const toCity = ref('');
-const type = ref('');
-const date = ref('');
-const description = ref('');
-
-const submitForm = () =>{
-  emit('submit-request', {
-    fromCity: fromCity.value,
-    toCity: toCity.value,
-    type: type.value,
-    date: date.value,
-    description: description.value,
-  });
-
-  fromCity.value = '';
-  toCity.value = '';
-  type.value = '';
-  date.value = '';
-  description.value = '';
-}
-
-</script>
-
 <template>
 
   <form @submit.prevent = "submitForm" class="request-form">
@@ -45,9 +15,48 @@ const submitForm = () =>{
     <textarea v-model="description" placeholder="Опис" required></textarea>
     <button type="submit">Додати заявку</button>
   </form>
-
-
 </template>
+
+<script>
+export default {
+  name: 'RequestForm',
+  data() {
+    return {
+      fromCity: '',
+      toCity: '',
+      type: '',
+      date: '',
+      description: ''
+    }
+  },
+  methods: {
+    submitForm() {
+      const request = {
+        fromCity: this.fromCity,
+        toCity: this.toCity,
+        type: this.type,
+        date: this.date,
+        description: this.description
+      }
+
+      localStorage.setItem("fromCity", this.fromCity)
+      localStorage.setItem("toCity", this.toCity)
+      localStorage.setItem("type", this.type)
+      localStorage.setItem("date", this.date)
+      localStorage.setItem("description", this.description)
+
+      this.$emit('submit-request', request)
+
+      this.fromCity = ''
+      this.toCity = ''
+      this.type = ''
+      this.date = ''
+      this.description = ''
+    }
+  }
+}
+</script>
+
 
 <style scoped>
 .request-form {
