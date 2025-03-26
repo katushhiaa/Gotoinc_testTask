@@ -1,5 +1,20 @@
-# Vue 3 + Vite
+# Test task
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Description
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+This is an application that allows users to create a request for the transportation of your parcel or deliver another user's package
+
+## Installation
+
+```bash
+$ npm install
+```
+
+## Running the app
+
+```bash
+# cd test-task
+$ npm run dev
+```
+
+
